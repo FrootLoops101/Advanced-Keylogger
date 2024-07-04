@@ -1,6 +1,12 @@
 from cryptography.fernet import Fernet
+import os
+print("Current Working Directory:", os.getcwd())
 
-Key = Fernet.generate_key()
-file = open("encryption_key.txt", "wb")
-file.write(Key)
-file.close()
+# Generate a key for encryption
+key = Fernet.generate_key()
+print("Encryption key generated:", key)
+
+# Write the key to a file
+with open("encryption_key.txt", "wb") as file:
+    file.write(key)
+print("Encryption key saved to encryption_key.txt")
