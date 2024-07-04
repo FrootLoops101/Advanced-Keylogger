@@ -1,23 +1,27 @@
 from cryptography.fernet import Fernet
 
-key = "HK6R8PL5yhXhD1RnxBrwibnS7atZWQCfSevWNQ33BOs="
+# Load the encryption key from the file
+with open("encryption_key.txt", "rb") as file:
+    key = file.read()
 
-system_information_encryption = "e_system.txt"
-clipboard_information_encryption = "e_clipboard.txt"
-keys_information_encryption = "e_keys_logged.txt"
+# Initialize Fernet with the key
+fernet = Fernet(key)
 
-encrypted_files = [system_information_encryption, clipboard_information_encryption, keys_information_encryption]
-count = 0
+# List of encrypted files
+encrypted_files = ["e_system.txt", "e_clipboard.txt", "e_keys_logged.txt"]
 
-for decrypting_file in encrypted_files:
+# Decrypt each file
+for encrypted_file in encrypted_files:
+    with open(encrypted_file, 'rb') as file:
+        encrypted_data = file.read()
 
-    with open(encrypted_files[count], 'rb') as f:
-            data = f.read()
+    # Decrypt the data
+    decrypted_data = fernet.decrypt(encrypted_data)
 
-        fernet = Fernet(key)
-        decrypted = fernet.decrypt(data)
+    # Write the decrypted data back to the file
+    with open(encrypted_file, 'wb') as file:
+        file.write(decrypted_data)
 
-        with open(encrypted_files[count], 'wb') as f:
-            f.write(decrypted)
+    print(f"Decrypted {encrypted_file}")
 
-        count += 1
+print("All files decrypted successfully")
