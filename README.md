@@ -1,83 +1,125 @@
 # **Stealth Keylogger with Remote Email Reporting**
 
-Welcome to the Stealth Keylogger project with Remote Email Reporting! This Python-based keylogger is designed to run silently in the background, capturing keyboard inputs, taking screenshots, recording audio, and sending logs to a designated email address. This README provides a comprehensive guide to help you understand, set up, and run the keylogger.
+Welcome to the Stealth Keylogger with Remote Email Reporting project! This Python-based keylogger operates covertly in the background, capturing keyboard inputs, taking screenshots, recording audio, encrypting logs, and sending them to a designated email address.
 
-# DISCLAIMER
+## **DISCLAIMER:** 
+This keylogger is intended for educational purposes only. Misuse of this software for unauthorized access or any illegal activities is prohibited. The author assumes no liability for any unethical or unlawful use of this tool.
 
-This keylogger is intended for educational purposes only. Unauthorized use and/or distribution of this software may violate local, state, and federal laws. The author assumes no responsibility for any illegal or unethical use of this software.
+## **Table of Contents**
 
-## **Getting Started**
+- Features
+- Prerequisites
+- Setup
+- Running the Keylogger
+- Decrypting Encrypted Files
+- Key Features
+  - Keylogging
+  - Computer Information
+  - Clipboard Monitoring
+  - Audio Recording
+  - Screenshots
+  - Encryption
+  - Email Reporting
+  - Frequency
+- Troubleshooting
+- Conclusion
 
-**Prerequisites**
+## **Features**
 
-    Ensure you have Python installed on your system (Python 3.x).
-    Install the required libraries using the following command:
+- Keylogging: Captures keyboard inputs silently and logs them to key_log.txt.
 
-    bash
+- Computer Information: Gathers system details (hostname, IP addresses, processor information) and saves them in systeminfo.txt.
+
+- Clipboard Monitoring: Records clipboard contents and saves them in clipboard.txt.
+
+- Audio Recording: Records audio from the system's microphone for a specified duration (default: 10 seconds) and saves it as audio.wav.
+
+- Screenshots: Periodically captures screenshots of the entire screen and saves them as ss.png.
+
+- Encryption: Encrypts sensitive logs (system information, clipboard contents, key logs) using Fernet encryption before sending them via email. Encrypted files include e_system.txt.enc, e_clipboard.txt.enc, e_keys_logged.txt.enc.
+
+- Email Reporting: Sends encrypted logs to a specified email address (toaddr). Modify toaddr as needed.
+
+- Frequency: Adjusts reporting frequency (time_iteration) for sending logs via email.
+
+## **Prerequisites**
+
+Ensure Python (version 3.x) is installed on your system. Install the required libraries using pip:
 
     pip install pynput sounddevice cryptography Pillow
 
-- **Download the Project**
+## **Setup**
 
-    Clone or download this repository to your local machine.
+- Download the Project: Clone or download this repository to your local machine.
 
-- **Setup Email Credentials**
+- Setup Email Credentials: Open keylogger.py in your preferred IDE or text editor. Modify email_address and password to your email provider's credentials.
 
-    Open the Python script keylogger.py in your preferred IDE or text editor.
-    Modify the email_address and password variables to your Gmail address and app password (or your email provider's credentials).
+## **Running the Keylogger**
 
-- **Running the Keylogger**
+- Execute keylogger.py on the target system to initiate the keylogging process.
 
-    Run the Python script keylogger.py on the target system.
+- python keylogger.py
 
-- **Keylogging**
+## **Decrypting Encrypted Files**
 
-    The keylogger will silently record keyboard inputs and save them to the file key_log.txt.
+- After collecting logs, encrypted files (e_system.txt.enc, e_clipboard.txt.enc, e_keys_logged.txt.enc) are created. Use decrypt_files.py to decrypt them:
 
-- **Computer Information**
+        python decrypt_files.py
 
-    The system's information, including hostname, IP addresses, processor details, etc., will be saved in the file systeminfo.txt.
+- Ensure encryption_key.txt is present in the directory to decrypt the files successfully.
 
-- **Clipboard Monitoring**
+## **Key Features**
 
-    The contents of the clipboard will be saved in the file clipboard.txt.
+**Keylogging**
 
-- **Audio Recording**
+- Captures keyboard inputs silently and logs them to key_log.txt.
 
-    The keylogger will record audio from the system's microphone for the specified duration (default: 10 seconds) and save it in audio.wav.
+**Computer Information**
 
-- **Screenshots**
+- Gathers system details (hostname, IP addresses, processor information) and saves them in systeminfo.txt.
 
-    Screenshots of the entire screen will be saved in ss.png.
+**Clipboard Monitoring**
 
-- **Email Controls**
+- Records clipboard contents and saves them in clipboard.txt.
 
-    The keylogger will send the collected logs to the specified email address (toaddr) via email.
-    Modify the toaddr variable as needed.
+**Audio Recording**
 
-- **Frequency**
+- Records audio from the system's microphone for a specified duration (default: 10 seconds) and saves it as audio.wav.
 
-    The keylogger will send logs after a defined time interval (time_iteration).
-    Modify this variable to adjust the reporting frequency.
+**Screenshots**
 
-## **Common Problems & Troubleshooting**
-- **Email Reporting Failures**
+- Periodically captures screenshots of the entire screen and saves them as ss.png.
 
-    Ensure that you have entered the correct email address and password for the email account.
-    Check for any login issues or two-factor authentication requirements.
+**Encryption**
 
-- **Failed Data Retrieval**
+- Encrypts sensitive logs (system information, clipboard contents, key logs) using Fernet encryption before sending them via email.
 
-    Make sure the keylogger has the necessary permissions to access the clipboard, microphone, and take screenshots.
+**Email Reporting**
 
-- **Antivirus Detection**
+- Sends encrypted logs to a specified email address (toaddr). Modify toaddr as needed.
 
-    Some antivirus software may flag keyloggers as potentially malicious. Use the software responsibly and consider whitelisting the keylogger if required.
+**Frequency**
 
-- **Keylogger Not Working**
+- Adjusts reporting frequency (time_iteration) for sending logs via email.
 
-    Check for any syntax errors in the code or any exceptions being raised during runtime.
+## **Troubleshooting**
 
-# **Conclusion**
+- Email Reporting Failures
 
-The Stealth Keylogger with Remote Email Reporting is a powerful tool for educational purposes. By following the guidelines and being cautious about ethical use, users can gain insights into the world of cybersecurity and the importance of safeguarding personal information. Remember to comply with the laws and regulations of your region before using this keylogger. Use this tool responsibly and strictly for educational and ethical purposes.
+        Ensure correct email credentials are configured. Address any login issues or two-factor authentication requirements.
+
+- Data Retrieval Issues
+
+        Grant necessary permissions for clipboard access, microphone usage, and screenshot capabilities.
+
+- Antivirus Detection
+
+        Some antivirus software may flag keyloggers as potentially malicious. Use responsibly and consider whitelisting the keylogger if necessary.
+
+- Keylogger Not Working
+
+        Check for syntax errors in the code and handle any runtime exceptions.
+
+## **Conclusion**
+
+The Stealth Keylogger with Remote Email Reporting is a valuable educational tool for understanding cybersecurity principles. Use it responsibly and adhere to legal guidelines and ethical standards. Respect user privacy and only deploy with explicit consent or for educational purposes. By fostering awareness of cybersecurity risks, this tool contributes to a safer digital environment.
